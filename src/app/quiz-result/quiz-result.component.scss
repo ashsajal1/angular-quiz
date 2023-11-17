@@ -1,0 +1,52 @@
+$correctColor: rgba(0, 163, 16, 0.1);
+$correctOptionColor: rgba(0, 163, 16, 1);
+$incorrectColor: rgba(255, 0, 0, 0.1);
+$incorrectOptionColor: rgba(255, 0, 0, 1);
+$skippedColor: rgba(217, 255, 0, .1);
+$skippedOptionColor: rgba(217, 255, 0, 1);
+
+.container {
+    padding: 0 12px;
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+}
+
+
+.question {
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.right-question {
+    background-color: $correctColor;
+}
+
+.wrong-question {
+    background-color: $incorrectColor;
+}
+
+
+.option {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 6px;
+    border: 1px solid rgba(34, 117, 243, 0.25);
+}
+
+.right-option {
+    background-color: $correctOptionColor;
+    color: white;
+}
+
+.wrong-selected-option {
+    border: 1px solid $incorrectOptionColor;
+}
+
+.flex {
+    display: flex;
+    gap:3px;
+    align-items:flex-start;
+    justify-content: space-between;
+}

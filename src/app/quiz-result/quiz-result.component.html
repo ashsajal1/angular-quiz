@@ -1,0 +1,27 @@
+<h2 class="score-display">Score is {{ score }}</h2>
+
+<div class="container">
+  <div
+    class="question"
+    *ngFor="let question of questions; let i = index"
+    [ngClass]="question.isRight ? 'right-question' : 'wrong-question'"
+  >
+    <div class="flex">
+      <span>{{ i + 1 }}</span>
+      <h4 class="question-title">{{ question.question }}</h4>
+    </div>
+    <div class="answer-options" *ngFor="let option of question.options">
+      <p
+        class="option"
+        [ngClass]="{
+          'wrong-selected-option':
+            question.selectedAnswer === option &&
+            question.answer !== question.selectedAnswer,
+          'right-option': question.answer === option
+        }"
+      >
+        {{ option }}
+      </p>
+    </div>
+  </div>
+</div>

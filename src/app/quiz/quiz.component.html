@@ -1,0 +1,53 @@
+<div class="quiz-container" *ngIf="!score">
+  <p class="question-counter">
+    Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+  </p>
+  <div class="question" *ngFor="let question of questions; let i = index">
+    <div [hidden]="currentQuestionIndex !== i">
+      <h4 class="question-title">{{ question.question }}</h4>
+      <div
+        class="answer-options"
+        *ngFor="let option of question.options; let i = index"
+      >
+        <p
+          class="answer-option"
+          [ngClass]="{
+            'selected-option':
+              selectedOptionIndex.get(currentQuestionIndex) === i
+          }"
+          (click)="handleSelectAnswer(option, i)"
+        >
+          {{ option }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <button
+      class="previous-button"
+      (click)="previousQuestion()"
+      *ngIf="currentQuestionIndex !== 0"
+    >
+      Previous
+    </button>
+    <button
+      class="next-button"
+      (click)="nextQuestion()"
+      *ngIf="currentQuestionIndex !== questions.length - 1"
+    >
+      Next
+    </button>
+    <button
+      class="submit-button"
+      (click)="handleSubmit()"
+      *ngIf="currentQuestionIndex === questions.length - 1"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+
+<div *ngIf="score">
+  <app-quiz-result [score]="score" [questions]="questions"></app-quiz-result>
+</div>
