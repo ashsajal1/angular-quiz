@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Asap', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 12px;
+    height: 9vh;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-buttons button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.navigation-buttons button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    padding: 14px 12px;
+    width: 100%;
+    height: 7vh;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+a:hover {
+    color:rgba(17, 61, 219, 0.426);
+}

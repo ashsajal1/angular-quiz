@@ -1,4 +1,7 @@
-<h2 class="score-display">Score is {{ score }}</h2>
+<div class="status">
+  <img class="status-img" [src]="status()" [alt]="status()" title="Status image">
+  <h2>You scored {{score}} out of {{questions.length}}</h2>
+</div>
 
 <div class="container">
   <div
@@ -7,7 +10,7 @@
     [ngClass]="question.isRight ? 'right-question' : 'wrong-question'"
   >
     <div class="flex">
-      <span>{{ i + 1 }}</span>
+      <span>{{ i + 1 }}. </span>
       <h4 class="question-title">{{ question.question }}</h4>
     </div>
     <div class="answer-options" *ngFor="let option of question.options">

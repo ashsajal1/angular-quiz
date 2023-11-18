@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { QuizService } from '../quiz.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -7,20 +8,25 @@ import { QuizService } from '../quiz.service';
   styleUrls: ['./quiz.component.scss'],
 })
 export class QuizComponent {
-  constructor(private quizService: QuizService) {}
+  topic: any;
+  constructor(private quizService: QuizService, private route: ActivatedRoute) {
+    this.topic = this.route.snapshot.paramMap.get('topic');
+    //console.log(this.topic)
+  }
 
   selectedOptionIndex: any = new Map();
   questions: any;
   currentQuestionIndex: number = 0;
-  score: number | null = null;
+  score: number = 0;
   selectedAnswers: any = [];
+  isQuizEnd:boolean = false;
 
   ngOnInit() {
     // Access the quiz array from the QuizService
     this.questions = this.quizService.quiz.filter(
-      (q: any) => q.topic.toLowerCase() === 'angular'
+      (q: any) => q.topic.toLowerCase() === this.topic.toLowerCase()
     );
-    // console.log(this.questions);
+    console.log(this.questions);
   }
 
   previousQuestion() {
@@ -46,6 +52,7 @@ export class QuizComponent {
   }
 
   handleSubmit() {
+    this.isQuizEnd = true;
     this.selectedAnswers.forEach((userAnsweredQuestion: any) => {
       const question = this.questions.find(
         (q: any) => q.id === userAnsweredQuestion.id
@@ -58,10 +65,10 @@ export class QuizComponent {
           this.score = 1;
         }
         question.isRight = true;
-        question.selectedAnswer = userAnsweredQuestion.selectedAnswer
+        question.selectedAnswer = userAnsweredQuestion.selectedAnswer;
       } else {
         question.isRight = false;
-        question.selectedAnswer = userAnsweredQuestion.selectedAnswer
+        question.selectedAnswer = userAnsweredQuestion.selectedAnswer;
       }
     });
 

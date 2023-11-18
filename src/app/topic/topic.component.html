@@ -1,0 +1,12 @@
+<div  class="container">
+  <h2>List of Topics!</h2>
+  <main>
+    <div *ngFor="let topic of topics" class="topic">
+        <div class="topic-img">
+          <img class="topic-icon" [src]="topic.image" alt="Image" />
+        </div>
+        <p>{{topic.topicName}}</p>
+        <a [routerLink]="['quiz', topic.topicName]"><button>Start {{topic.topicName}} Quiz</button></a>
+      </div>
+  </main>
+</div>
