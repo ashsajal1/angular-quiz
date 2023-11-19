@@ -1,35 +1,30 @@
-/* Apply basic styles to the quiz container */
 .quiz-container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    height: 84vh;
-  }
-  
-  /* Style the question number and total count */
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  height: 84vh;
+
   .question-counter {
     font-size: 14px;
     color: #555;
   }
-  
-  /* Style the question title */
+
   .question-title {
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  
-  /* Style the answer options */
+
   .answer-option {
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 6px;
     border: 1px solid rgba(34, 117, 243, .25);
-  }
-  
-  .answer-option:hover {
-    background-color: #f4f4f4;
+
+    &:hover {
+      background-color: #f4f4f4;
+    }
   }
 
   .selected-option {
@@ -39,12 +34,30 @@
     padding: 6px;
     border: 1px solid rgba(34, 117, 243, 1);
   }
-  
 
-  
-  /* Style the score display */
   .score-display {
     font-size: 24px;
     margin-top: 20px;
     background-color: #0056b3;
   }
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  height: 84vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+  }
+
+  img {
+    height: 300px;
+    width: 300px;
+  }
+}

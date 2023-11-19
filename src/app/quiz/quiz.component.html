@@ -1,4 +1,4 @@
-<div class="quiz-container" *ngIf="!isQuizEnd && questions.length>0">
+<div class="quiz-container" *ngIf="!isQuizEnd && questions.length > 0">
   <p class="question-counter">
     Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
   </p>
@@ -52,4 +52,7 @@
   <app-quiz-result [score]="score" [questions]="questions"></app-quiz-result>
 </div>
 
-<div *ngIf="!(questions.length>0)">No quiz exist on {{topic}}</div>
+<div class="container" *ngIf="!(questions.length > 0)">
+  <img src="assets/status/404-quiz.svg" alt="Quiz not found" />
+  <h1>No quiz exist on {{ topic }}</h1>
+</div>

@@ -26,7 +26,7 @@ export class QuizComponent {
     this.questions = this.quizService.quiz.filter(
       (q: any) => q.topic.toLowerCase() === this.topic.toLowerCase()
     );
-    console.log(this.questions);
+    // console.log(this.questions);
   }
 
   previousQuestion() {
