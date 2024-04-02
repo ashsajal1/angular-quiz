@@ -5,19 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizComponent } from './shared/components/quiz/quiz.component';
 import { QuizResultComponent } from './shared/components/quiz-result/quiz-result.component';
-import { TopicComponent } from './topic/topic.component';
+import { TopicComponent } from './shared/components/topic/topic.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuizComponent,
-    QuizResultComponent,
-    TopicComponent
+    // QuizComponent,
+    // QuizResultComponent,
+    // TopicComponent
   ],
   imports: [
-    // SharedModule,
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
