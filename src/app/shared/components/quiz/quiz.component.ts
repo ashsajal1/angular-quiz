@@ -27,6 +27,19 @@ export class QuizComponent {
       (q: any) => q.topic.toLowerCase() === this.topic.toLowerCase()
     );
     // console.log(this.questions);
+    // Shuffle questions
+    this.shuffleArray(this.questions);
+    // Shuffle options within each question
+    this.questions.forEach((question: any) => {
+      this.shuffleArray(question.options);
+    });
+  }
+
+  shuffleArray(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 
   previousQuestion() {
