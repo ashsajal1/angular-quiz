@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuizComponent } from './quiz/quiz.component';
+import { QuizComponent } from './shared/components/quiz/quiz.component';
 import { PageNotFoundComponent } from './shared/pages/page-not-found/page-not-found.component';
 import { TopicComponent } from './topic/topic.component';
 
